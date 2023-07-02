@@ -26,7 +26,7 @@ class ERBackup
     File.open("#{@@hold_folder}/#{last+1}/build_note.txt", 'w') { |file| file.write(build_note) }
     FileUtils.copy_file("#{@@game_folder}/#{@@game_file_name}", "#{@@hold_folder}/#{last+1}/#{@@game_file_name}")
 
-    puts "#{@@hold_folder}/#{last+1}/#{@@game_file_name} saved"
+    puts "#{@@hold_folder}/#{last+1}/#{@@game_file_name} '#{build_note}' saved"
   end
 
 
