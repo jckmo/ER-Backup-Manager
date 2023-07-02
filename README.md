@@ -34,4 +34,4 @@ Windows:
 
 
 Sample Execution:
-![Alt text](sample.PNG)
+![Alt text](sample3.PNG)
