@@ -10,7 +10,7 @@ class ERBackup
   @@hold_folder = './EldenRingBackup/HOLD'
   @@game_folder = './76561199248410024'
 
-  def self.backup_current_file(build_note)
+  def self.backup_current_file
     #take current file and store it in hold for now
     #create new subfolder in hold folder so no overwrites happen
     #find better way to send backup to a location
@@ -21,12 +21,10 @@ class ERBackup
     
     FileUtils.mkdir("#{@@hold_folder}/#{last+1}")
     FileUtils.touch("#{@@hold_folder}/#{last+1}/#{@@game_file_name}")
-    FileUtils.touch("#{@@hold_folder}/#{last+1}/build_note.txt")
 
-    File.open("#{@@hold_folder}/#{last+1}/build_note.txt", 'w') { |file| file.write(build_note) }
     FileUtils.copy_file("#{@@game_folder}/#{@@game_file_name}", "#{@@hold_folder}/#{last+1}/#{@@game_file_name}")
 
-    puts "#{@@hold_folder}/#{last+1}/#{@@game_file_name} '#{build_note}' saved"
+    puts "#{@@hold_folder}/#{last+1}/#{@@game_file_name} saved"
   end
 
 
@@ -65,15 +63,14 @@ class ERBackup
 
           if Array(options2).include? input2
             puts $line
-            puts 'Please give a note to be saved with the previous build:'
-            build_note = gets.chomp
             puts "You are about to save the current game file and replace it with the file at #{full_path}. \n\t Continue? (y/n)"
             input3 = gets.chomp
             case input3
             when 'y'
               puts "\n"
-              ERBackup.backup_current_file(build_note)
+              ERBackup.backup_current_file()
               FileUtils.copy_file("#{@@backup_folder}/#{input1}/#{input2}/#{@@game_file_name}", "#{@@game_folder}/#{@@game_file_name}")
+              File.open("#{@@backup_folder}/Current.txt", 'w') { |file| file.write("#{input1} #{input2}") }
               puts "#{full_path} loaded"
               puts "\n"
             else
@@ -98,7 +95,11 @@ class ERBackup
   end
 end
 
+current_game = file_data = File.read("./EldenRingBackup/Current.txt").split.join(" ")
+
 puts $line
 puts "\nHello! Welcome to ER Backup Manager. Please refer to documentation for desired file structure"
 puts "\nAvailable Commands: \n\tERBackup.load_file() \n\tERBackup.save_current_file()\n"
+
+puts "\n\tCurrent: #{current_game}"
 puts $line
