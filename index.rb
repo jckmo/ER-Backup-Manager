@@ -7,7 +7,7 @@ $line = '-----------------------------------------------------------------------
 class ERBackup
   @@game_file_name = 'ER0000.sl2'
   @@backup_folder = './EldenRingBackup'
-  @@hold_folder = './EldenRingBackup/HOLD'
+  @@hold_folder = './EldenRingBackup/misc/HOLD'
   @@game_folder = './76561199248410024'
 
   def self.backup_current_file
@@ -28,6 +28,10 @@ class ERBackup
     FileUtils.copy_file("#{full_path}/#{@@game_file_name}", "#{@@game_folder}/#{@@game_file_name}")
     File.open("#{@@backup_folder}/misc/Current.txt", 'w') { |file| file.write("#{input1} #{input2}") }
     puts "#{full_path} loaded"
+    sleep(0.5)
+    puts 'Goodbye, please close the window and reopen the program to load a new save'
+    sleep(1.5)
+    return exit
   end
 
   def self.start
