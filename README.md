@@ -1,7 +1,9 @@
 ### File Structure:
   - Inside `C:\Users\User\AppData\Roaming\EldenRing` create a folder called `EldenRingBackup`.
+  - Inside of that folder create a folder called `misc`.
   - Inside of that folder create a folder called `HOLD`.
   - Inside of that a folder called `0`.
+
   - For each save file, create a folder with your level name and the `ER0000.sl2` from `C:\Users\User\AppData\Roaming\EldenRing\{LONG_STRING_OF_NUMBERS}` inside of it.
 
 Example:
@@ -18,8 +20,9 @@ Example:
       |- Dex
         <!-- A level 125 Dex build file -->
         |- ER0000.sl2
-    |- HOLD
-      |- 0
+    |- misc
+      |- HOLD
+        |- 0
   |- GraphicsConfig.xml
 ```
 
