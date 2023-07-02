@@ -30,3 +30,7 @@ Windows:
 
   Open Properties of shortcut, replace target with below. Replace {} with path to repository.
     C:\Windows\System32\cmd.exe /k cd {LOCATION_OF_REPO}/er-backup-manager & irb -r './index.rb'
+
+
+Sample Execution:
+![Alt text](sample.PNG)
