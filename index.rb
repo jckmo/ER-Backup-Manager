@@ -99,7 +99,6 @@ current_game = file_data = File.read("./EldenRingBackup/Current.txt").split.join
 
 puts $line
 puts "\nHello! Welcome to ER Backup Manager. Please refer to documentation for desired file structure"
-puts "\nAvailable Commands: \n\tERBackup.load_file() \n\tERBackup.save_current_file()\n"
 
-puts "\n\tCurrent: #{current_game}"
-puts $line
+puts "\n\tCurrent: #{current_game}\n"
+ERBackup.load_file()
