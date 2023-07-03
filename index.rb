@@ -56,8 +56,6 @@ class ERBackup
 
           input2 = gets.chomp
           if Array(options2).include? input2
-            puts $line
-
             full_path = "#{@@backup_folder}/#{input1}/#{input2}"
             
             puts "You are about to save the current game file to #{full_path}\nand replace the previous save file in that location. \n\t Continue? (y/n)"
@@ -179,5 +177,6 @@ current_game = file_data = File.read("./EldenRingBackup/misc/Current.txt").split
 puts $line
 
 puts "\nHello! Welcome to ER Backup Manager. Please refer to documentation for desired file structure"
+puts "\n\tCurrent: #{current_game}\n\n"
+puts "Available commands:\n\n\tERBackup.start() \n\t\t[Full Load/Save Cycle]\n\tERBackup.backup_current_file() \n\t\t[Save Current Game File to Location]"
 
-puts "\n\tCurrent: #{current_game}\n"
