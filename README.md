@@ -31,7 +31,7 @@ Example File Structure:
 
 ## Installation
 
-  New Shortcut > Location: `"C:\Windows\System32\cmd.exe"` > Give Shortcut a name
+  Right-Click Dekstop > New Shortcut > Location: `"C:\Windows\System32\cmd.exe"` > Give Shortcut a name
 
   Open Properties of shortcut, replace target with below. Replace {} with path to repository.
     `C:\Windows\System32\cmd.exe /k cd {LOCATION_OF_REPO}/er-backup-manager & irb -r './index.rb'`
